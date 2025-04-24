@@ -23,3 +23,12 @@ const promise3 = new Promise((_, reject) => {
 const result = myPromiseRace([promise1, promise2, promise3])
     .then((result) => console.log(result))
     .catch((err) => console.error(err));
+
+
+function myPromiseRace(promises) {
+  return new Promise((resolve, reject) => {
+      for (const promise of promises) {
+          Promise.resolve(promise).then(resolve).catch(reject)
+      }
+  })
+}

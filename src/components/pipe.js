@@ -1,6 +1,8 @@
 const pipe = (fns) => {
     return (initialValue) => {
-        return fns.reduce((acc, fn) => fn(acc), initialValue);
+        return fns.reduce((acc, fn) => {
+            fn(acc)
+        }, initialValue);
     };
 };
 
